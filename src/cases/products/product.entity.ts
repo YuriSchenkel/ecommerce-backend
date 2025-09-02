@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  ForeignKey,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Category } from '../categories/category.entity';
 import { Brand } from '../brands/brand.entity';
 
@@ -27,8 +20,8 @@ export class Product {
   active: boolean;
 
   @ManyToOne(() => Category, { eager: true, nullable: false })
-  categoryId: string;
+  category: Category;
 
   @ManyToOne(() => Brand, { eager: true, nullable: true })
-  brandId: string;
+  brand: Brand;
 }
