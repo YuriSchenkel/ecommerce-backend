@@ -19,6 +19,9 @@ export class Product {
   @Column('boolean', { nullable: false, default: true })
   active: boolean;
 
+  @Column('text', { nullable: false, default: true })
+  imageUrl: string;
+
   @ManyToOne(() => Category, { eager: true, nullable: false })
   category: Category;
 

@@ -25,7 +25,8 @@ export class ProductController {
 
   @Get()
   async findAll(
-    @Query('categoryId', ParseUUIDPipe) categoryId: string,
+    @Query('categoryId', new ParseUUIDPipe({ optional: true }))
+    categoryId?: string,
   ): Promise<Product[]> {
     if (categoryId) {
       const category = await this.categoryService.findById(categoryId);
